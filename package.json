@@ -1,11 +1,11 @@
 {
-  "name": "market-rider",
+  "name": "waxy-bird",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/JeffBaucom/market-rider#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "express": "^4.17.1",
     "express-winston": "^4.1.0",
+    "mongoose": "^5.13.7",
+    "path": "^0.12.7",
     "winston": "^3.3.3"
   }
 }
