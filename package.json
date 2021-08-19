@@ -1,0 +1,25 @@
+{
+  "name": "market-rider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffBaucom/market-rider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffBaucom/market-rider/issues"
+  },
+  "homepage": "https://github.com/JeffBaucom/market-rider#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express-winston": "^4.1.0",
+    "winston": "^3.3.3"
+  }
+}
