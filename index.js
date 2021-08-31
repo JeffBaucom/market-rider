@@ -1,12 +1,15 @@
 const express = require('express');
-const winston = require('winston'),
-    expressWinston = require('express-winston');
+// const winston = require('winston'),
+    // expressWinston = require('express-winston');
 // const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 
 const dbUrl = 'mongodb://localhost/waxy-bird';
 const PORT = process.env.PORT || 8080;
+
+const Wallet = require('./wallet');
+const Score = require('./score');
 
 const app = express();
 
@@ -35,7 +38,11 @@ app.use(express.static(__dirname + 'client/public'));
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(express.static("client"));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 mongoose.connect(dbUrl);
+
 
 /* 
 * -------------
@@ -43,9 +50,29 @@ mongoose.connect(dbUrl);
 * ------------- 
 */ 
 
-
 app.get('/api', (req, res) => {
   res.json({ message: 'hello from server!'});
+});
+
+app.post('/api/score', (req, res, next) => {
+  Wallet.findOneAndUpdate(query, update, options, (error, result) => {
+    if (!error) {
+      if (!result) {
+        result = new Wallet();
+      }
+      result.save((error) => {
+        if (!error) {
+
+        } else {
+          throw error;
+        }
+      })
+    }
+
+  });
+  // console.log(req.body);
+  // res.json(req.body); 
+
 });
 
 app.use((req, res, next) => {

@@ -1,25 +1,62 @@
-import logo from './logo.svg';
+import * as waxjs from "@waxio/waxjs/dist";
 import './App.css';
+import Button from 'react-bootstrap/Button';
+import { useEffect } from 'react';
 import Home from './Home';
 
 function App() {
+  const wax = new waxjs.WaxJS({
+    rpcEndpoint: 'https://wax.greymass.com'
+  });
+
+  let userAccount;
+
+  useEffect(() => {
+    async function autoLogin() {
+      try {
+        let isAutoLoginAvailable = await wax.isAutoLoginAvailable();
+        userAccount = wax.userAccount;
+        console.log(userAccount);
+        let pubKeys = wax.pubKeys;
+      }
+      catch {
+
+      }
+    }
+  })
+  
+  async function login() {
+    try {
+        userAccount = await wax.login();
+        console.log(userAccount);
+        const pubKeys = wax.pubKeys;
+        console.log(pubKeys);
+        fetch(`https://wax.api.atomicassets.io/atomicassets/v1/assets?page=1&limit=9999&owner=${userAccount}&collection_name=mixandmaxwoo`) // add query for schema_name
+          .then(res => res.json())
+          .then(
+            (result) => {
+              console.log(result)
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+    } catch (e) {
+            
+    }
+   } 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Home></Home>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Home></Home> */}
+      <Button variant="primary" onClick={login}>Login</Button>
+      <p>{ userAccount }</p>
     </div>
   );
 }
