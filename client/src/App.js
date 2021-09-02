@@ -2,7 +2,7 @@ import * as waxjs from "@waxio/waxjs/dist";
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import { useEffect } from 'react';
-import Home from './Home';
+import Game from './Game';
 
 function App() {
   const wax = new waxjs.WaxJS({
@@ -24,6 +24,16 @@ function App() {
       }
     }
   })
+
+  function prepURLPayload(payloadObj) {
+    let formBody = [];
+    for (let property in payloadObj) {
+      let encodedKey = encodeURIComponent(property);
+      let encodedValue = encodeURIComponent(payloadObj[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    return formBody.join("&");
+  }
   
   async function login() {
     try {
@@ -54,7 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Home></Home> */}
+      <Game></Game>
       <Button variant="primary" onClick={login}>Login</Button>
       <p>{ userAccount }</p>
     </div>

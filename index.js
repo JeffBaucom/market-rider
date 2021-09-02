@@ -8,7 +8,6 @@ const path = require('path');
 const dbUrl = 'mongodb://localhost/waxy-bird';
 const PORT = process.env.PORT || 8080;
 
-const Wallet = require('./wallet');
 const Score = require('./score');
 
 const app = express();
@@ -55,24 +54,34 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api/score', (req, res, next) => {
-  Wallet.findOneAndUpdate(query, update, options, (error, result) => {
-    if (!error) {
-      if (!result) {
-        result = new Wallet();
-      }
-      result.save((error) => {
-        if (!error) {
-
-        } else {
-          throw error;
-        }
-      })
-    }
-
+  // req.body = {
+  //   WalletId: '',
+  //   Score: ''
+  // }
+  console.log(req.body);
+  let score = new Score({
+    walletId: req.body.WalletID,
+    score: req.body.Score
   });
-  // console.log(req.body);
-  // res.json(req.body); 
+  score.save((err, data) => {
+    if (err) {
+      console.log(err);
+      res.json({error: err});
+    } else {
+      res.json({success: data});
+    }
+  })
+});
 
+app.get('/api/scores', function(req, res){
+  Score.find({}, function(err, data) {
+      if (err) {
+          console.log(err);
+          res.json({error: err});
+      } else {
+          res.json(data);
+      }
+  });
 });
 
 app.use((req, res, next) => {
