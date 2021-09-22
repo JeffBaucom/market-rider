@@ -74,7 +74,7 @@ app.post('/api/score', (req, res, next) => {
 });
 
 app.get('/api/scores', function(req, res){
-  Score.find({}, function(err, data) {
+  Score.find({}).sort({score: "desc"}).exec(function(err, data) {
       if (err) {
           console.log(err);
           res.json({error: err});

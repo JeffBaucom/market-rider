@@ -1,7 +1,7 @@
 import React from 'react'
 import Unity, {UnityContent, UnityContext } from 'react-unity-webgl'
 
-const Game = () => {
+const Game = (props) => {
     const unityContent = new UnityContent(
         '../../../build/Game.json',
         '../../../build/UnityLoader.js'
@@ -21,6 +21,9 @@ const Game = () => {
       unityContent.on("DemoUnityToReact", (params) => {
         console.log('DemoUnityToReact', params)
       })
+    window.GiveWalletID = function() {
+      unityContent.send("GameManager", "SetupWalletString", props.walletID);
+    }
     
       return (
         <div>
