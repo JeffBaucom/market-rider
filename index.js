@@ -43,8 +43,17 @@ app.use(express.static("client"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(dbUrl);
+try {
+  // Connect to the MongoDB cluster
+   mongoose.connect(
+    dbUrl,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log(" Mongoose is connected")
+  );
 
+} catch (e) {
+  console.log("could not connect");
+}
 
 /* 
 * -------------
