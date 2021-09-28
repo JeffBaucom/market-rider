@@ -5,7 +5,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const dbUrl = 'mongodb://localhost/waxy-bird';
+const uri = process.env.MONGODB_URI;
+const dbUrl = uri || 'mongodb://localhost/waxy-bird';
 const PORT = process.env.PORT || 8080;
 
 const Score = require('./score');
