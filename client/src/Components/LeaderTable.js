@@ -13,10 +13,10 @@ const LeaderTable = (props) => {
         return dateObj.toLocaleTimeString(); 
     }
     return (
-        <div key={props.leaderboardData[0]._id}>
-            <table>
+        <div className="leaderboard" key={props.leaderboardData[0]._id}>
+            <table className="leaderboard-table">
                 <thead>
-                    <tr>
+                    <tr className="leaderboard-table-row">
                         <th>Wallet</th>
                         <th>Score</th>
                         <th>Date and Time</th>
@@ -24,7 +24,7 @@ const LeaderTable = (props) => {
                 </thead>
                 <tbody>
                     {props.leaderboardData.map((item) => (
-                        <tr>
+                        <tr key={item._id} className="leaderboard-table-row">
                             <td>{item.walletId}</td>
                             <td>{item.score}</td>
                             <td>{getDateString(item.createdAt)} - {getTimeString(item.createdAt)}</td>

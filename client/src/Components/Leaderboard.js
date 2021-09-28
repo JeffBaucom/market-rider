@@ -1,6 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import LeaderTable from './LeaderTable';
+import {
+  NavLink
+} from "react-router-dom"
 
 const Leaderboard = () => {
 
@@ -25,7 +28,13 @@ const Leaderboard = () => {
 
       return (
         <div>
-            <LeaderTable leaderboardData={leaderboardData}></LeaderTable>
+          <div className="subnav">
+            <button className="navbar-button">
+              <NavLink to="/waxybird">Back to Game</NavLink>
+            </button>
+          </div>
+
+          <LeaderTable leaderboardData={leaderboardData}></LeaderTable>
         </div>
       )
 }

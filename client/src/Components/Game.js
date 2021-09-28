@@ -6,28 +6,18 @@ const Game = (props) => {
         '../../../build/Game.json',
         '../../../build/UnityLoader.js'
       )
-      unityContent.on("quitted", () => {
-        console.log('Game quit')
-      })
-      unityContent.on("loaded", () => {
-        console.log('Game loaded')
-      })
-      unityContent.on("progress", progression => {
-        console.log('Game loading', progression)
-      })
-      unityContent.on("error", message => {
-        console.log('Game errored', message)
-      })
-      unityContent.on("DemoUnityToReact", (params) => {
-        console.log('DemoUnityToReact', params)
-      })
+
     window.GiveWalletID = function() {
+      console.log(props);
       unityContent.send("GameManager", "SetupWalletString", props.walletID);
+    }
+
+    window.SubmitScore = function(walletId, score) {
+      props.submitScore(walletId, score);
     }
     
       return (
         <div>
-          <p>Game</p>
           <Unity unityContent={unityContent} width="100%" height="100%" />
         </div>
       )

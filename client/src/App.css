@@ -1,20 +1,82 @@
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'VT323', monospace;
-}
-
-
+/* 
+  Global Elements
+*/
 button {
   background-color: darkgray;
   border: 0;
   font-weight: bold;
-  font-size: 5rem;
-  padding: 10px;
+  font-size: 2.5rem;
+  padding: 5px;
   transition-duration: 0.4s;
+  font-family: 'VT323', monospace;
 }
 
 button:hover {
   background-color: white;
-  border: 1px solid black;
-  padding: 10px;
   color: black;
 }
+
+/* 
+  Classes
+*/
+.App {
+  height: 100%;
+}
+.navbar {
+  background-color: lightgray;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  max-width: 1000px;
+  min-width: 750px;
+}
+
+.login-button {
+
+}
+
+.navbar-button a {
+  text-decoration: none;
+  color: black;
+}
+
+.subnav {
+  background-color: smoke;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.leaderboard {
+  margin-top: 2rem;
+  background-color: whitesmoke;
+}
+
+.leaderboard-table {
+  border: 1px solid black;
+  font-size: 2rem;
+}
+
+.leaderboard-table-row {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.login-container {
+  text-align: center;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
