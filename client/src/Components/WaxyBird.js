@@ -1,11 +1,42 @@
 import Game from './Game';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   NavLink
 } from "react-router-dom"
 
 function WaxyBird(props) {
- 
+  const [unlockedSkins, setUnlockedSkins] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const fetchAssets = () => {
+    const queryString = `https://wax.api.atomicassets.io/atomicassets/v1/assets?collection_name=mixandmaxwoo&page=1&limit=100&order=desc&sort=asset_id&owner=${props.userAccount}`;
+    fetch(queryString)
+    .then(res => res.json())
+    .then((result) => {
+      console.log(result);
+        let unlockedUserSkins = "1";
+        const userTemplates = result.data.map((element) => element.template.template_id);
+        // Pumpkin / #3
+        if (userTemplates.indexOf("440231") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat('|2');
+        }
+        // ClassPresident / #3
+        if (userTemplates.indexOf("438867") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat('|3');
+        }
+        // Frosti / #4
+        if (userTemplates.indexOf("438869") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|4");
+        }
+
+        setUnlockedSkins(unlockedUserSkins);
+        setIsLoaded(true);
+      });
+    };
+
+    fetchAssets();
+  }, [props.userAccount]); 
 
   function submitScore(wallet, score) {
     let details = {
@@ -42,7 +73,8 @@ function WaxyBird(props) {
           <NavLink to="/waxybird/leaderboard">Leaderboard</NavLink>
         </button>
       </div>
-      <Game walletID={props.userAccount} submitScore={submitScore}></Game>
+      {isLoaded ? 
+      <Game walletID={props.userAccount} unlockedSkins={unlockedSkins} submitScore={submitScore}></Game> : <h1>LOADING</h1> }
     </div>
   );
 }

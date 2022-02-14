@@ -19,61 +19,54 @@ function App() {
   const [userAccount, setUserAccount] = useState(null);
   let mainScreen;
 
-  useEffect(() => {
-    async function autoLogin() {
-      try {
-        console.log(userAccount);
-        let isAutoLoginAvailable = await wax.isAutoLoginAvailable();
-        setUserAccount(wax.userAccount);
-        let pubKeys = wax.pubKeys;
-        fetch(`https://wax.api.atomicassets.io/atomicassets/v1/assets?page=1&limit=9999&owner=${userAccount}&collection_name=mixandmaxwoo`) // add query for schema_name
-          .then(res => res.json())
-          .then(
-            (result) => {
-              console.log(result)
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
-      }
-      catch {
+  // useEffect(() => {
+  //   async function autoLogin() {
+  //     try {
+  //       console.log(userAccount);
+  //       let isAutoLoginAvailable = await wax.isAutoLoginAvailable();
+  //       setUserAccount(wax.userAccount);
+  //       let pubKeys = wax.pubKeys;
+  //       const queryString = `https://wax.api.atomicassets.io/atomicassets/v1/assets?collection_name=mixandmaxwoo&page=1&limit=100&order=desc&sort=asset_id&owner=${wax.userAccount}`; 
+  //       fetch(queryString) // add query for schema_name
+  //         .then(res => res.json())
+  //         .then(
+  //           (result) => {
+  //             // setUserAssets(result.data);
+  //           },
+  //           // Note: it's important to handle errors here
+  //           // instead of a catch() block so that we don't swallow
+  //           // exceptions from actual bugs in components.
+  //           (error) => {
+  //             this.setState({
+  //               isLoaded: true,
+  //               error
+  //             });
+  //           }
+  //         )
+  //     }
+  //     catch {
 
-      }
-    }
-  })
+  //     }
+  //   }
+  // })
 
   async function login() {
-    console.log(userAccount);
-    try {
-      setUserAccount(await wax.login());
-      console.log(userAccount);
-      const pubKeys = wax.pubKeys;
-      console.log(pubKeys);
-      fetch(`https://wax.api.atomicassets.io/atomicassets/v1/assets?page=1&limit=9999&owner=${userAccount}&collection_name=mixandmaxwoo`) // add query for schema_name
-        .then(res => res.json())
-        .then(
-          (result) => {
-            console.log(result)
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
-    } catch (e) {
+    // try {
+    //   setUserAccount(await wax.login());
+    //   console.log(userAccount);
+    //   const pubKeys = wax.pubKeys;
+    //   console.log(pubKeys);
+    // } catch (e) {
 
+    // }
+    try {
+      wax.login()
+      .then((result) => {
+        setUserAccount(result);
+      });
+
+    } catch (e) {
+      console.log(e);
     }
   }
 

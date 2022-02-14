@@ -12,6 +12,12 @@ const Game = (props) => {
       unityContent.send("GameManager", "SetupWalletString", props.walletID);
     }
 
+    window.GiveUnlockedSkins = function() {
+      console.log(props);
+      unityContent.send("GameManager", "SetupSkins", props.unlockedSkins);
+    }
+
+
     window.SubmitScore = function(walletId, score) {
       props.submitScore(walletId, score);
     }
