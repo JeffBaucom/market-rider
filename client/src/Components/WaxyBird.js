@@ -1,4 +1,5 @@
 import Game from './Game';
+import Loader from './Loader';
 import React, {useEffect, useState} from 'react';
 import {
   NavLink
@@ -74,7 +75,8 @@ function WaxyBird(props) {
         </button>
       </div>
       {isLoaded ? 
-      <Game walletID={props.userAccount} unlockedSkins={unlockedSkins} submitScore={submitScore}></Game> : <h1>LOADING</h1> }
+      <Game walletID={props.userAccount} unlockedSkins={unlockedSkins} submitScore={submitScore}></Game> 
+      : <Loader className="game-loading"></Loader>}
     </div>
   );
 }

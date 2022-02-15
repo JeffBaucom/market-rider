@@ -94,9 +94,6 @@ function App() {
           }
         </Route>
         
-        <Route exact path="/">
-          <h2>HOME</h2>
-        </Route>
         </div>
 
       </Switch>

@@ -7,12 +7,9 @@ function Navbar() {
 
   return (
     <div className="navbar">
-        <button className="navbar-button">
-          <NavLink to="/">Home</NavLink>
-          </button>
         <div className="navbar-sublist">
             <button className="navbar-button navbar-button-sublist">
-              <NavLink to="/waxybird">Waxy Bird</NavLink>
+              <NavLink to="/waxybird">Market Rider</NavLink>
             </button>
         </div>
     </div>

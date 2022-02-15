@@ -78,5 +78,37 @@ button:hover {
   text-align: center;
 }
 
+.game-loading {
+  text-align: center;
+}
+
 tr:nth-child(even) {background: #CCC}
 tr:nth-child(odd) {background: #FFF}
+
+
+/* LOADING SPINNER */
+@keyframes frame-animation {
+  100% {
+    transform: translateX(-100%);
+ }
+}
+.Animation {
+  margin: 0 auto;
+  max-width: 100px;
+  overflow: hidden;
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.Animation-frames {
+  animation: frame-animation 280ms infinite;
+  animation-timing-function: steps(4);
+  display: flex;
+  width: 400%;
+}
+.Animation-frame {
+  display: block;
+  width: 25%;
+  max-width: 25%;
+  flex-basis: 25%;
+}
