@@ -3,7 +3,7 @@ import Unity, {UnityContent, UnityContext } from 'react-unity-webgl'
 
 const Game = (props) => {
     const unityContent = new UnityContent(
-        '../../../build/Game.json',
+        '../../../build/Builds.json',
         '../../../build/UnityLoader.js'
       )
 
