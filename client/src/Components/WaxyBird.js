@@ -71,7 +71,7 @@ function WaxyBird(props) {
     <div className="game-container">
       <div className="subnav">
         <button className="navbar-button">
-          <NavLink to="/waxybird/leaderboard">Leaderboard</NavLink>
+          <NavLink to="/leaderboard">Leaderboard</NavLink>
         </button>
       </div>
       {isLoaded ? 

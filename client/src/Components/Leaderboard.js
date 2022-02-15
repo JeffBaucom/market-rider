@@ -30,7 +30,7 @@ const Leaderboard = () => {
         <div>
           <div className="subnav">
             <button className="navbar-button">
-              <NavLink to="/waxybird">Back to Game</NavLink>
+              <NavLink to="/market-rider">Back to Game</NavLink>
             </button>
           </div>
 

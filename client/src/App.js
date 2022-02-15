@@ -80,18 +80,27 @@ function App() {
           <Login login={login}/>
         </Route>
 
-        <Route exact path="/market-rider/leaderboard">
+        <Route exact path="/leaderboard">
           <Leaderboard></Leaderboard>
         </Route>
-
-        <Route path="/">
-          {/* need to pass props (useracct and assets to waxybird component) */}
-          {/* {userAccount ? <Redirect to="/login" /> : <WaxyBird />} */}
+        
+        <Route exact path="/market-rider">
           {
             userAccount ? 
           <WaxyBird userAccount={userAccount}/> :
           <Login login={login} />
           }
+        </Route>
+
+        <Route path="/">
+          {/* need to pass props (useracct and assets to waxybird component) */}
+          {/* {userAccount ? <Redirect to="/login" /> : <WaxyBird />} */}
+          <Redirect exact from="/" to="/market-rider" />
+        </Route>
+        <Route path="/waxy-bird">
+          {/* need to pass props (useracct and assets to waxybird component) */}
+          {/* {userAccount ? <Redirect to="/login" /> : <WaxyBird />} */}
+          <Redirect exact from="/" to="/market-rider" />
         </Route>
         
         </div>
