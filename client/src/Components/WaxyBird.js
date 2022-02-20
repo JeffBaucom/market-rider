@@ -30,6 +30,21 @@ function WaxyBird(props) {
         if (userTemplates.indexOf("438869") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|4");
         }
+        if (userTemplates.indexOf("442880") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|5");
+        }
+        if (userTemplates.indexOf("442882") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|6");
+        }
+        if (userTemplates.indexOf("442886") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|7");
+        }
+        if (userTemplates.indexOf("442883") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|8");
+        }
+        if (userTemplates.indexOf("442884") > -1) {
+          unlockedUserSkins = unlockedUserSkins.concat("|9");
+        }
 
         setUnlockedSkins(unlockedUserSkins);
         setIsLoaded(true);
