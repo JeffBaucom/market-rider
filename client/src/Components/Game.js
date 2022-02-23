@@ -18,8 +18,8 @@ const Game = (props) => {
     }
 
 
-    window.SubmitScore = function(walletId, score) {
-      props.submitScore(walletId, score);
+    window.SubmitScore = function(walletId, score, avatar = 1) {
+      props.submitScore(walletId, score, avatar);
     }
     
       return (

@@ -70,10 +70,14 @@ app.post('/api/score', (req, res, next) => {
   //   WalletId: '',
   //   Score: ''
   // }
-  console.log(req.body);
+  let avatar = 1;
+  if (req.body.Avatar) {
+    avatar = req.body.Avatar;
+  }
   let score = new Score({
     walletId: req.body.WalletID,
-    score: req.body.Score
+    score: req.body.Score,
+    avatar: avatar
   });
   score.save((err, data) => {
     if (err) {

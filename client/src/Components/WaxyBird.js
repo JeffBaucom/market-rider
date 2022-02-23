@@ -54,10 +54,11 @@ function WaxyBird(props) {
     fetchAssets();
   }, [props.userAccount]); 
 
-  function submitScore(wallet, score) {
+  function submitScore(wallet, score, avatar = 1) {
     let details = {
       WalletID: wallet,
       Score: score,
+      Avatar: avatar,
     }
 
     let formBody = [];
