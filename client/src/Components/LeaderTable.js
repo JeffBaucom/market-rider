@@ -52,8 +52,8 @@ const LeaderTable = (props) => {
                         <tr key={item._id} className="leaderboard-table-row">
                             <td>{item.walletId}</td>
                             <td>{item.score}</td>
-                            {item.avatar ? <td><img className="leaderboard-table-rider" src={`/riders/${getRider(item.avatar)}.png`} alt={getRider(item.avatar)}></img></td>
-                             : <td><img className="leaderboard-table-rider" src='/riders/jamie.png' alt="jamie"></img></td>}
+                            {item.avatar ? <td><img className="leaderboard-table-rider bounce-1" src={`/riders/${getRider(item.avatar)}.png`} alt={getRider(item.avatar)}></img></td>
+                             : <td><img className="leaderboard-table-rider bounce-1" src='/riders/jamie.png' alt="jamie"></img></td>}
                             <td>{getDateString(item.createdAt)} - {getTimeString(item.createdAt)}</td>
                         </tr>
                     ))}
