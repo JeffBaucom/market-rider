@@ -18,7 +18,7 @@ function WaxyBird(props) {
       console.log(result);
         let unlockedUserSkins = "1";
         const userTemplates = result.data.map((element) => element.template.template_id);
-        // Pumpkin / #3
+        // Pumpkin / #2
         if (userTemplates.indexOf("440231") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat('|2');
         }
@@ -30,18 +30,23 @@ function WaxyBird(props) {
         if (userTemplates.indexOf("438869") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|4");
         }
+        // Dill / #5
         if (userTemplates.indexOf("442880") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|5");
         }
+        // Dire / #6
         if (userTemplates.indexOf("442882") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|6");
         }
+        // Moony / #7
         if (userTemplates.indexOf("442886") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|7");
         }
+        // The Goit / #8
         if (userTemplates.indexOf("442883") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|8");
         }
+        // Unc. Ani / #9
         if (userTemplates.indexOf("442884") > -1) {
           unlockedUserSkins = unlockedUserSkins.concat("|9");
         }

@@ -74,6 +74,11 @@ button:hover {
   margin: 1rem;
 }
 
+.leaderboard-table-rider {
+  height: 40px;
+  width: 40px;
+}
+
 .login-container {
   text-align: center;
 }
