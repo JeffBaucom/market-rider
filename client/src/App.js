@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Login from './Components/Login';
 import Leaderboard from './Components/Leaderboard';
+import Contact from './Components/Contact';
+import Footer from './Components/Footer';
 
 function App() {
   const wax = new waxjs.WaxJS({
@@ -90,6 +92,10 @@ function App() {
           <WaxyBird userAccount={userAccount}/> :
           <Login login={login} />
           }
+        </Route>
+        <Route exact path="/contact">
+          <Contact></Contact>
+
         </Route>
 
         <Route path="/">
