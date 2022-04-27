@@ -15,32 +15,32 @@ function Navbar() {
         <ul className="navbar-sublist nav-menu">
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <a href="https://discord.gg/DfhjrGG7u6" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a className="nav-link" href="https://discord.gg/DfhjrGG7u6" target="_blank" rel="noopener noreferrer">Discord</a>
               </button>
             </li>
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <a href="https://t.me/wooworldplus" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a className="nav-link" href="https://t.me/wooworldplus" target="_blank" rel="noopener noreferrer">Telegram</a>
               </button>
             </li>
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <a href="https://neftyblocks.com/c/mixandmaxwoo/drops/103458" target="_blank" rel="noopener noreferrer">Buy Packs</a>
+                <a className="nav-link" href="https://neftyblocks.com/c/mixandmaxwoo/drops/103458" target="_blank" rel="noopener noreferrer">Buy Packs</a>
               </button>
             </li>
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <a href="https://neftyblocks.com/c/mixandmaxwoo/packs" target="_blank" rel="noopener noreferrer">Open Packs</a>
+                <a className="nav-link" href="https://neftyblocks.com/c/mixandmaxwoo/packs" target="_blank" rel="noopener noreferrer">Open Packs</a>
               </button>
             </li>
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <a href="https://wooworld.plus/" target="_blank" rel="noopener noreferrer">WooWorld+</a>
+                <a className="nav-link" href="https://wooworld.plus/" target="_blank" rel="noopener noreferrer">WooWorld+</a>
               </button>
             </li>
             <li>
               <button className="nav-item navbar-sub-button navbar-button-sublist">
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink className="nav-link" to="/contact">Contact</NavLink>
               </button>
             </li>
         </ul>
